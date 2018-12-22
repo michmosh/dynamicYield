@@ -2,3 +2,24 @@
     text-decoration: none;
     color:inherit
 }
+
+.side-nav{
+    grid-area: side-nav;
+    min-height: 90vh;
+  }
+.side-nav ul{
+    list-style: none;
+    padding:0 1rem
+}
+
+.side-nav ul li{
+    background-color: #E25D33;
+    margin-bottom:0.5rem;
+    padding-left: 2rem;
+    opacity: 0.8;
+    border-radius: 25px;
+}
+
+.side-nav ul li:hover{
+    opacity: 1;
+}

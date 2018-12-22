@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ls from 'local-storage';
 import styles from './style.css';
-import {storageObject} from '../config';
 
 class VideoItem extends Component {
     constructor(props){

@@ -11,13 +11,12 @@ class Video extends Component {
 
     componentDidUpdate(prevProps, prevState){
         if(this.props.src !== prevState.src) this.setState({src:this.props.src})
-        
     }
 
     render() {
         return (
             <div className={styles.video}>
-               <iframe src={`https://www.youtube.com/embed/${this.state.src}`} allow="autoplay; fullscreen"></iframe>
+               <iframe src={`https://www.youtube.com/embed/${this.state.src}`} allow="autoplay; fullscreen" title="video"></iframe>
             </div>
            
         );

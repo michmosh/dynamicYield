@@ -1,0 +1,5 @@
+:local(.serachBarWrapper){
+    display: grid;
+    grid-template-columns: 1fr 10%;
+    grid-gap: 1rem;
+}

@@ -1,0 +1,23 @@
+:local(.listWrapper){
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    padding: 1rem;
+    grid-gap: 2rem;
+}
+
+:local(.show){
+    display:block;
+}
+
+.card img{
+    max-width:100%;
+}
+
+
+@media  only screen and (max-width:1024px){
+      
+}
+
+@media  only screen and (max-width:768px){
+      
+}

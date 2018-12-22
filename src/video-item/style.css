@@ -1,0 +1,20 @@
+:local(.card){
+    min-height:10rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+:local(.icon){
+    background-color: #282827;
+    color: #E25D33;
+    width: 2.8rem;
+    align-self: self-end;
+    border-radius: 25px;
+    opacity: 0.9;
+}
+
+:local(h3){
+    background-color: #282827;
+    opacity: 0.8;
+    color:#DCD8CF ;
+}

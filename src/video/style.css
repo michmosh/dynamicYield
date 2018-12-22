@@ -1,0 +1,21 @@
+:local(.video){
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /* display: none; */
+}
+
+:local(iframe){
+    width:100%;
+    height:100%;
+}
+
+@media  only screen and (max-width:768px){
+    :local(.video){
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 10;
+    } 
+}

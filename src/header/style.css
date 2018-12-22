@@ -1,0 +1,23 @@
+.hamburger-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.hamburger span{
+  width:25px;
+  height:2px;
+  display: block;
+  background-color: #DCD8CF;
+  margin: 0.2rem 0 0.2rem 0;
+}
+
+.app-logo{
+  padding-left:1rem;
+}
+
+@media  only screen and (max-width:1024px){
+    .hamburger-wrapper{
+      display: block;
+    }
+  }

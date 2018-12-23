@@ -7,7 +7,6 @@ class List extends Component {
     constructor(props){
         super(props);
         this.setSelectedvideo = this.setSelectedvideo.bind(this);
-        this.saveInStorage = this.saveInStorage.bind(this);
         this.state = {
             data : [],
             update:false,
@@ -26,10 +25,6 @@ class List extends Component {
         this.setState({selectedVideo : video})
     }
 
-    saveInStorage(item){
-      this.props.updatePlaylist(item)
-    }
-    
     render() {
         return (
             <div className={styles.listWrapper}>

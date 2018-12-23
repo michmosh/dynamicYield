@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.css'
-
+import {connect} from 'react-redux';
 const Messages = (props)=>{
     let bgColor;
     switch(props.type){
@@ -22,4 +22,8 @@ const Messages = (props)=>{
     );    
 }
 
-export default Messages
+function mapStateToProps(state ,props){
+    return {show:state.show , message:state.message , type:state.msgType}
+}
+
+export default connect(mapStateToProps)(Messages);

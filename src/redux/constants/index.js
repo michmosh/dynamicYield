@@ -1,0 +1,10 @@
+export const constants = {
+    ADD_VIDEO : "ADD_VIDEO",
+    LOADED_VIDEOS : "LOADED_VIDEOS",
+    LOADED_FROM_STORAGE : "LOADED_FROM_STORAGE",
+    CHECKED_STORAGE : "CHECKED_STORAGE",
+    HIDE_MESSAGE :"HIDE_MESSAGE",
+    SHOW_MESSAGE :"SHOW_MESSAGE"
+}
+
+export default constants;

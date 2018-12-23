@@ -8,6 +8,7 @@ import List from '../list/list';
 import {storageObject} from '../config';
 import Saved from '../saved-items/saved';
 import Messages from '../messages/messages';
+import { actions } from '../redux/actions';
 
 class Main extends Component {
     constructor(props){
@@ -27,27 +28,22 @@ class Main extends Component {
     }
 
     setStorageObject(){
-        ls.on(storageObject ,()=>{
-        });
         let playList = ls.get(storageObject);
-       if( playList === null) {
-            ls.set(storageObject , this.state.saved);
-       }else{
-           this.setState({saved : playList});
-       }
-       this.props.checkedStorage(playList);
+        if(playList === null) {
+            ls.set(storageObject , this.state.saved); // set empty array in storage if none exists 
+            playList = [];
+        }
+        this.props.checkedStorage( playList);
     }
 
     loadPlayList(){
-        this.setState({data : [...this.state.saved] , update:true}) ;
-        this.props.loadVideosFromStorage(this.state.saved);
+        this.props.loadVideosFromStorage([...this.state.saved]);
     }
 
     getData(term){
        axios.get(`${this.props.credetials.apiUrl}/search?part=snippet&maxResults=20&q=${term}&type=video&key=${this.props.credetials.apiKey}`)
         .then(res=>{
-            this.setState({data : res.data.items , update:true});
-            this.props.loadVideos(this.state.data);
+            this.props.loadVideos(res.data.items);
         })
     }
     handleInputChnage(event){
@@ -60,7 +56,7 @@ class Main extends Component {
                     <Search handleInputChnage={this.handleInputChnage} />
                     <Saved  loadPlayList={this.loadPlayList} />
                 </div>
-                <List update={this.state.update} data={this.state.data} updatePlaylist={this.updatePlaylist} />
+                <List />
                 <Messages message={this.state.savedMessage} type={this.state.msgType} />
             </div>
         );
@@ -68,20 +64,19 @@ class Main extends Component {
 }
 
 function mapStateToProps(state ,props){
-   
     return state
 }
 
 function mapDispatchToProps(dispatch ,props){
     return {
         loadVideos: function (payload){
-            dispatch({type:'LOADED_VIDEOS' , payload:payload} )
+            dispatch(actions.loadedVideos(payload));
         } ,
         loadVideosFromStorage : function(payload){
-            dispatch({type:'LOADED_FROM_STORAGE' , payload:payload} )
+            dispatch(actions.loadedFromStorage(payload));
         } ,
         checkedStorage : function(payload){
-            dispatch({type:'CHECKED_STORAGE' , payload:payload})
+            dispatch(actions.checkedStorage(payload));
         }
     }
 }

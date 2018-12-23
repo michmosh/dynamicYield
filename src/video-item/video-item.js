@@ -3,6 +3,8 @@ import styles from './style.css';
 import ls from 'local-storage';
 import {storageObject} from '../config';
 import {connect} from 'react-redux';
+import {actions} from '../redux/actions/index';
+import {store} from '../redux/store/index';
 class VideoItem extends Component {
     constructor(props){
         super(props);
@@ -74,10 +76,17 @@ function mapStateToProps(state ,props){
 function mapDispatchToProps(dispatch ,props){
     return {
         addVideo : function(payload){
-            dispatch({type:"ADD_VIDEO" ,payload: payload})
+            dispatch(actions.addVideo(payload));
+            dispatch(actions.showMessage({msgType:payload.msgType , message:payload.message}));
+            setTimeout(()=>{
+                store.dispatch(actions.hideMessage(payload))
+            },1000);
         },
         showMessage : function(payload){
-            dispatch({type:'SHOW_MESSAGE' , payload:payload})
+            dispatch(actions.showMessage(payload));
+            setTimeout(()=>{
+                store.dispatch(actions.hideMessage(payload))
+            },1000);
         }
     }
 }
